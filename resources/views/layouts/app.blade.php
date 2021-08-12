@@ -45,7 +45,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="{{ route('home') }}">
-                <h1>SIAB</h1>
+                <h1>SIAKAR</h1>
             </a>
             <!-- User -->
             <ul class="nav align-items-center d-md-none">
@@ -125,7 +125,7 @@
                             </a>
                         </li>
                     @endif
-                    
+
                     @if (Request::segment(1) == 'profil')
                         <li class="nav-item active">
                         <a class="nav-link active" href="{{ route('profil') }}">
@@ -203,8 +203,8 @@
         <!-- Header -->
         <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
             <div class="container-fluid">
-                
-                
+
+
                 <div class="header-body">
                     <!-- Card stats -->
                     @if (session('success'))
@@ -235,10 +235,9 @@
                 <div class="row align-items-center justify-content-xl-between">
                     <div class="col-xl-6">
                         <div class="copyright text-center text-xl-left text-muted">
-                            © {{ date('Y')}} <a href="https://grhayasa.com/" class="font-weight-bold ml-1"
-                                target="_blank">PT.
-                                Grhayasa Nusacitra Estima</a> Theme By <a href="https://www.creative-tim.com"
-                                class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+                            Copyright © {{ date('Y')}}<a href="https://serunibelajar.co.id/" class="font-weight-bold ml-1"
+                                target="_blank">Seruni</a> Powered By <a href="#"
+                                class="font-weight-bold ml-1" target="_blank">Sparta Team</a>
                         </div>
                     </div>
                 </div>
@@ -259,7 +258,7 @@
                 token: "ee6fab19c5a04ac1a32a645abde4613a",
                 application: "argon-dashboard-free"
             });
-        
+
     </script>
 
 </body>

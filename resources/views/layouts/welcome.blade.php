@@ -33,7 +33,7 @@
     <link href="{{ url('argon') }}/assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
 </head>
 
-<body class="bg-default">
+<body class="bg-default" style="background: #50CB93;">
     <!-- Navbar -->
     @auth
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
@@ -91,7 +91,7 @@
                             <span class="nav-link-inner--text">Profile</span>
                         </a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link nav-link-icon" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="ni ni-user-run"></i>
@@ -115,8 +115,8 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-5 col-md-6">
-                            <h1 class="text-white">Selamat Datang!</h1>
-                            <p class="text-lead text-light">Sistem Absensi Terpadu</p>
+                            <h1 class="text-white" style="font-size:2.5rem;">SIAKAR</h1>
+                            <p class="text-lead text-light" style="font-size:1.5rem;">Sistem Informasi Absensi Karyawan</p>
                         </div>
                     </div>
                 </div>
@@ -159,9 +159,9 @@
         <footer class="py-5">
             <div class="container">
                 <div class="copyright text-center">
-                    © {{ date('Y')}} <a href="https://grhayasa.com/" class="font-weight-bold ml-1" target="_blank">PT.
-                        Grhayasa Nusacitra Estima</a> Theme By <a href="https://www.creative-tim.com"
-                        class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+                    Copyright © {{ date('Y')}} <a href="https://serunibelajar.co.id/" class="font-weight-bold ml-1"
+                                target="_blank">Seruni</a> Powered By <a href="#"
+                                class="font-weight-bold ml-1" target="_blank">Sparta Team</a>
                 </div>
             </div>
         </footer>
@@ -182,7 +182,7 @@
 
     </script>
     <script src="{{ asset('js/myscript.js') }}"></script>
-    
+
 </body>
 
 </html>

@@ -28,7 +28,7 @@ Ubah User - {{ config('app.name') }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-2"><label for="nrp" class="float-right col-form-label">NRP</label></div>
+                            <div class="col-sm-2"><label for="nrp" class="float-right col-form-label">Username</label></div>
                             <div class="col-sm-10">
                                 <input type="text" onkeypress="return hanyaAngka(event)" class="form-control @error('nrp') is-invalid @enderror" id="nrp" name="nrp" value="{{ $user->nrp }}">
                                 @error('nrp') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror

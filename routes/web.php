@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +22,7 @@ Route::post('/login', 'AuthController@login')->name('login')->middleware('guest'
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['web', 'auth', 'roles']], function(){
+Route::group(['middleware' => ['web', 'auth', 'roles']], function () {
     Route::post('/logout', 'AuthController@logout')->name('logout');
 
     Route::get('/ganti-password', 'UsersController@gantiPassword')->name('ganti-password');
@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web', 'auth', 'roles']], function(){
     Route::get('/profil', 'UsersController@profil')->name('profil');
     Route::patch('/update-profil/{user}', 'UsersController@updateProfil')->name('update-profil');
 
-    Route::group(['roles' => 'Admin'], function(){
+    Route::group(['roles' => 'Admin'], function () {
         Route::get('/users/cari', 'UsersController@search')->name('users.search');
         Route::patch('/users/password/{user}', 'UsersController@password')->name('users.password');
         Route::resource('/users', 'UsersController');
@@ -45,14 +45,19 @@ Route::group(['middleware' => ['web', 'auth', 'roles']], function(){
         Route::post('/kehadiran', 'PresentsController@store')->name('kehadiran.store');
     });
 
-    Route::group(['roles' => 'Pegawai'], function(){
+    Route::group(['roles' => 'Pegawai'], function () {
         Route::get('/daftar-hadir', 'PresentsController@show')->name('daftar-hadir');
         Route::get('/daftar-hadir/cari', 'PresentsController@cariDaftarHadir')->name('daftar-hadir.cari');
     });
 
     // ATUR IP ADDRESS DISINI
-    Route::group(['middleware' => [config('ipaddress.ip_address')]], function() {
-        Route::patch('/absen/{kehadiran}', 'PresentsController@checkOut')->name('kehadiran.check-out');
-        Route::post('/absen', 'PresentsController@checkIn')->name('kehadiran.check-in');
-    });
+    // Route::group(['middleware' => [config('ipaddress.ip_address')]], function() {
+    //     Route::patch('/absen/{kehadiran}', 'PresentsController@checkOut')->name('kehadiran.check-out');
+    //     Route::post('/absen', 'PresentsController@checkIn')->name('kehadiran.check-in');
+    // });
+
+    // Route::group(function () {
+    Route::patch('/absen/{kehadiran}', 'PresentsController@checkOut')->name('kehadiran.check-out');
+    Route::post('/absen', 'PresentsController@checkIn')->name('kehadiran.check-in');
+    // });
 });

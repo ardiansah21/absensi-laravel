@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>NRP</th>
+            <th>Username</th>
             <th>Nama</th>
             <th>Keterangan</th>
             <th>Jam Masuk</th>
@@ -27,7 +27,7 @@
                     <td>
                         @if (strtotime($present->jam_keluar) <= strtotime($present->jam_masuk))
                             {{ 21 - (\Carbon\Carbon::parse($present->jam_masuk)->diffInHours(\Carbon\Carbon::parse($present->jam_keluar))) }}
-                        @else 
+                        @else
                             @if (strtotime($present->jam_keluar) >= strtotime('19:00:00'))
                                 {{ (\Carbon\Carbon::parse($present->jam_masuk)->diffInHours(\Carbon\Carbon::parse($present->jam_keluar))) - 3 }}
                             @else
@@ -40,6 +40,6 @@
                     <td>-</td>
                 @endif
             </tr>
-        @endforeach 
+        @endforeach
     </tbody>
 </table>

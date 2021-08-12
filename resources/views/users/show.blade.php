@@ -104,7 +104,7 @@ Detail User - {{ config('app.name') }}
                         <div class="table-responsive">
                             <table class="table table-sm">
                                 <tbody>
-                                    <tr><td>NRP</td><td>: {{ $user->nrp }}</td></tr>
+                                    <tr><td>Username</td><td>: {{ $user->nrp }}</td></tr>
                                     <tr><td>Nama</td><td>: {{ $user->nama }}</td></tr>
                                     <tr><td>Sebagai</td><td>: {{ $user->role->role }}</td></tr>
                                 </tbody>
@@ -188,7 +188,7 @@ Detail User - {{ config('app.name') }}
                                                     <td>
                                                         @if (strtotime($present->jam_keluar) <= strtotime($present->jam_masuk))
                                                             {{ 21 - (\Carbon\Carbon::parse($present->jam_masuk)->diffInHours(\Carbon\Carbon::parse($present->jam_keluar))) }}
-                                                        @else 
+                                                        @else
                                                             @if (strtotime($present->jam_keluar) >= strtotime('19:00:00'))
                                                                 {{ (\Carbon\Carbon::parse($present->jam_masuk)->diffInHours(\Carbon\Carbon::parse($present->jam_keluar))) - 3 }}
                                                             @else
@@ -218,7 +218,7 @@ Detail User - {{ config('app.name') }}
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="kehadiran" tabindex="-1" role="dialog" aria-labelledby="kehadiranLabel" aria-hidden="true">

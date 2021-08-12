@@ -55,7 +55,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>NRP</th>
+                                <th>Username</th>
                                 <th>Nama</th>
                                 <th>Sebagai</th>
                                 <th>Opsi</th>
