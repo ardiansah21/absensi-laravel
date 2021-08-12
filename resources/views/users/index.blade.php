@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Users Management - {{ config('app.name') }}
+    Users Management - {{ config('app.name') }}
 @endsection
 
 @section('header')
@@ -28,18 +28,20 @@ Users Management - {{ config('app.name') }}
 
 @section('content')
 
-<!-- Begin Page Content -->
+    <!-- Begin Page Content -->
     <div class="container">
         <div class="card shadow h-100">
             <div class="card-header">
                 <h5 class="m-0 pt-1 font-weight-bold float-left">Users Management</h5>
-                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right" title="Tambah User"><i class="fas fa-plus"></i></a>
+                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right" title="Tambah User"><i
+                        class="fas fa-plus"></i></a>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
                         <form action="{{ route('users.search') }}" method="get">
-                            <input type="text" name="cari" id="cari" class="form-control mb-3" value="{{ request('cari') }}" placeholder="Cari . . ." autocomplete="off">
+                            <input type="text" name="cari" id="cari" class="form-control mb-3"
+                                value="{{ request('cari') }}" placeholder="Cari . . ." autocomplete="off">
                         </form>
                     </div>
                     <div class="col-lg-6">
@@ -67,16 +69,17 @@ Users Management - {{ config('app.name') }}
                                     <td>{{ $user->nama }}</td>
                                     <td>{{ $user->role->role }}</td>
                                     <td>
-                                        <a href="{{ route('users.show', $user) }}" class="btn btn-sm btn-info" title="Detail User"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('users.show', $user) }}" class="btn btn-sm btn-info"
+                                            title="Detail User"><i class="fas fa-eye"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach 
+                            @endforeach
                         </tbody>
-                    </table>                    
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-<!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 
 @endsection
