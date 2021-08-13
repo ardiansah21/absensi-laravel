@@ -14,7 +14,7 @@
         @foreach ($presents as $present)
             <tr>
                 <th>{{ $loop->iteration }}</th>
-                <td>{{ $present->user->nrp }}</td>
+                <td>{{ $present->user->username }}</td>
                 <td>{{ $present->user->nama }}</td>
                 <td>{{ $present->keterangan }}</td>
                 @if ($present->jam_masuk)

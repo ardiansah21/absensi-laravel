@@ -15,7 +15,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'nrp' => ['required', 'required_with:password', new LoginRule($request->password)],
+            'username' => ['required', 'required_with:password', new LoginRule($request->password)],
             'password' => ['required'],
         ]);
 

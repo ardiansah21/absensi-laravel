@@ -104,7 +104,7 @@ Detail User - {{ config('app.name') }}
                         <div class="table-responsive">
                             <table class="table table-sm">
                                 <tbody>
-                                    <tr><td>Username</td><td>: {{ $user->nrp }}</td></tr>
+                                    <tr><td>Username</td><td>: {{ $user->username }}</td></tr>
                                     <tr><td>Nama</td><td>: {{ $user->nama }}</td></tr>
                                     <tr><td>Sebagai</td><td>: {{ $user->role->role }}</td></tr>
                                 </tbody>

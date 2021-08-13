@@ -247,7 +247,7 @@ class PresentsController extends Controller
 
     public function excelUser(Request $request, User $user)
     {
-        return Excel::download(new PresentExport($user->id, $request->bulan), 'kehadiran-' . $user->nrp . '-' . $request->bulan . '.xlsx');
+        return Excel::download(new PresentExport($user->id, $request->bulan), 'kehadiran-' . $user->username . '-' . $request->bulan . '.xlsx');
     }
 
     public function excelUsers(Request $request)

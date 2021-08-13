@@ -12,10 +12,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-credit-card"></i></span>
                 </div>
-                <input id="nrp" type="text"
+                <input id="username" type="text"
                 {{-- onkeypress="return hanyaAngka(event)" --}}
-                 class="form-control @error('nrp') is-invalid @enderror" name="nrp" value="{{ old('nrp') }}" autocomplete="nrp" autofocus placeholder="Masukkan Username ...">
-                @error('nrp')
+                 class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="username" autofocus placeholder="Masukkan Username ...">
+                @error('username')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

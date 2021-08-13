@@ -45,7 +45,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="{{ route('home') }}">
-                <h1>SIAKAR</h1>
+                <H1 style="text-transform: none;">SiAKar</H1>
             </a>
             <!-- User -->
             <ul class="nav align-items-center d-md-none">

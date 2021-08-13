@@ -65,7 +65,7 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <th>{{ $rank++ }}</th>
-                                    <td>{{ $user->nrp }}</td>
+                                    <td>{{ $user->username }}</td>
                                     <td>{{ $user->nama }}</td>
                                     <td>{{ $user->role->role }}</td>
                                     <td>

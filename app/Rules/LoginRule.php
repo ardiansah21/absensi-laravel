@@ -26,7 +26,7 @@ class LoginRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        if (!auth()->attempt(['nrp' => $value, 'password' => $this->pass])) {
+        if (!auth()->attempt(['username' => $value, 'password' => $this->pass])) {
             return false;
         }
     }

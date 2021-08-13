@@ -27,10 +27,10 @@ Tambah User - {{ config('app.name') }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-2"><label for="nrp" class="float-right col-form-label">Username</label></div>
+                            <div class="col-sm-2"><label for="username" class="float-right col-form-label">Username</label></div>
                             <div class="col-sm-10">
-                                <input type="text" onkeypress="return hanyaAngka(event)" class="form-control @error('nrp') is-invalid @enderror" id="nrp" name="nrp" value="{{ old('nrp') }}">
-                                @error('nrp') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
+                                <input type="text" onkeypress="return hanyaAngka(event)" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ old('username') }}">
+                                @error('username') <span class="invalid-feedback" role="alert">{{ $message }}</span> @enderror
                             </div>
                         </div>
                         <div class="form-group row">

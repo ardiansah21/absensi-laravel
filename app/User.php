@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -16,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role_id','nama', 'nrp', 'foto', 'password',
+        'role_id', 'nama', 'username', 'foto', 'password',
     ];
 
     /**
@@ -37,7 +36,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
     public function role()
     {
         return $this->belongsTo('App\Role');
@@ -50,7 +48,7 @@ class User extends Authenticatable
 
     private function checkRole($role)
     {
-        return (strtolower($role) == strtolower($this->have_role->role)) ? true : false ;
+        return (strtolower($role) == strtolower($this->have_role->role)) ? true : false;
     }
 
     public function hasRole($roles)

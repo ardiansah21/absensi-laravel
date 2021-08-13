@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Present;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -25,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $present = Present::whereUserId(auth()->user()->id)->whereTanggal(date('Y-m-d'))->first();
-        $url = 'https://kalenderindonesia.com/api/YZ35u6a7sFWN/libur/masehi/'.date('Y/m');
+        $url = 'https://kalenderindonesia.com/api/YZ35u6a7sFWN/libur/masehi/' . date('Y/m');
         $kalender = file_get_contents($url);
         $kalender = json_decode($kalender, true);
         $libur = false;
@@ -39,6 +38,6 @@ class HomeController extends Controller
                 }
             }
         }
-        return view('home', compact('present','libur','holiday'));
+        return view('home', compact('present', 'libur', 'holiday'));
     }
 }

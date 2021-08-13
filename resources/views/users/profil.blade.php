@@ -27,9 +27,9 @@ Profil - {{ config('app.name') }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-2"><label for="nrp" class="col-form-label">Username</label></div>
+                            <div class="col-sm-2"><label for="username" class="col-form-label">Username</label></div>
                             <div class="col-sm-10">
-                                <input disabled type="text" class="form-control" id="nrp" name="nrp" value="{{ Auth::user()->nrp }}">
+                                <input disabled type="text" class="form-control" id="username" name="username" value="{{ Auth::user()->username }}">
                             </div>
                         </div>
                         <div class="form-group row">
