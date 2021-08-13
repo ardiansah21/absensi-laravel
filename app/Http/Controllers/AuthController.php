@@ -15,8 +15,8 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'nrp'       => ['required','size:9','required_with:password',new LoginRule($request->password)],
-            'password'  => ['required']
+            'nrp' => ['required', 'required_with:password', new LoginRule($request->password)],
+            'password' => ['required'],
         ]);
 
         return redirect('/home');

@@ -38,6 +38,6 @@ class LoginRule implements Rule
      */
     public function message()
     {
-        return 'NRP atau Password salah.';
+        return 'Username atau Password salah.';
     }
 }

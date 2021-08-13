@@ -14,13 +14,14 @@ User Admin:
 - Total Kerja merupakan Total yang didapat dari Carbon::parse Pukul (Jam Masuk) dan Pukul (Jam Keluar) dikurangi 1 jam istirahat dengan Jam Keluar terhitung 17.00 jika tidak tergolong Lembur
 - Total Kerja Lembur merupakan Total yang didapat dari Carbon::parse 19.00 dan Pukul (Jam Keluar) jika tergolong Lembur.
 - Jika Karyawan tidak tergolong Lembur, maka Total Kerja Lembur dikosongkan atau memiliki value 0
+- Export Excel
 
 User Karyawan:
 - Dapat login menggunakan No. Anggota Karyawan dan password
 - Dapat melakukan Create Presensi (Create Presensi hanya dapat dilakukan jika Karyawan sudah masuk ke dalam Wifi dengan IP Address yang telah terdaftar ke sistem)
-- Create Presensi Karyawan berupa Jam Masuk (Jam Masuk hanya dapat dilakukan jika sudah berada diantara jam 07.00 - 17.00), Jam Keluar (Jam Keluar hanya dapat dilakukan jika sudah melewati jam 17.00), dan Jam Keluar Lembur (Jam Keluar Lembur hanya dapat dilakukan jika sudah melewati jam 19.00)
-- Jika Karyawan melakukan Create Presensi Jam Masuk pada jam 07.00 - 08.00 maka tergolong Masuk
-- Jika Karyawan melakukan Create Presensi Jam Masuk pada jam 08.00 - 17.00 maka tergolong Telat
+- Create Presensi Karyawan berupa Jam Masuk (Jam Masuk hanya dapat dilakukan jika sudah berada diantara jam 09.00 - 17.00), Jam Keluar (Jam Keluar hanya dapat dilakukan jika sudah melewati jam 17.00), dan Jam Keluar Lembur (Jam Keluar Lembur hanya dapat dilakukan jika sudah melewati jam 19.00)
+- Jika Karyawan melakukan Create Presensi Jam Masuk pada jam 07.00 - 09.00 maka tergolong Masuk
+- Jika Karyawan melakukan Create Presensi Jam Masuk pada jam 09.00 - 17.00 maka tergolong Telat
 - Jika Karyawan tidak melakukan Create Presensi Jam Masuk hingga jam 17.00 maka tergolong Alpha
 - Jika Karyawan melakukan Create Presensi Jam Keluar sebelum jam 20.00 maka tidak tergolong Lembur
 - Jika Karyawan melakukan Create Presensi Jam Keluar sesudah jam 20.00 maka tergolong lembur

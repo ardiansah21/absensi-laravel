@@ -55,6 +55,7 @@ class PresentsController extends Controller
         $kehadiran = Present::whereUserId($user->id)->whereMonth('tanggal', $data[1])->whereYear('tanggal', $data[0])->whereKeterangan('telat')->get();
         $totalJamTelat = 0;
         foreach ($kehadiran as $present) {
+            //TODO chek perhitungan total jam telat
             $totalJamTelat = $totalJamTelat + (\Carbon\Carbon::parse($present->jam_masuk)->diffInHours(\Carbon\Carbon::parse('07:00:00')));
         }
         $url = 'https://kalenderindonesia.com/api/YZ35u6a7sFWN/libur/masehi/' . date('Y/m');
@@ -93,7 +94,7 @@ class PresentsController extends Controller
         $users = User::all();
         $alpha = false;
 
-        if (date('l') == 'Saturday' || date('l') == 'Sunday') {
+        if (date('l') == 'Sunday') {
             return redirect()->back()->with('error', 'Hari Libur Tidak bisa Check In');
         }
 
@@ -122,9 +123,9 @@ class PresentsController extends Controller
                 $data['jam_masuk'] = date('H:i:s');
                 $data['tanggal'] = date('Y-m-d');
                 $data['user_id'] = $request->user_id;
-                if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('08:00:00')) {
+                if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('09:00:00')) {
                     $data['keterangan'] = 'Masuk';
-                } else if (strtotime($data['jam_masuk']) > strtotime('08:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
+                } else if (strtotime($data['jam_masuk']) > strtotime('09:00:00') && strtotime($data['jam_masuk']) <= strtotime('19:00:00')) {
                     $data['keterangan'] = 'Telat';
                 } else {
                     $data['keterangan'] = 'Alpha';
@@ -139,9 +140,9 @@ class PresentsController extends Controller
         $data['jam_masuk'] = date('H:i:s');
         $data['tanggal'] = date('Y-m-d');
         $data['user_id'] = $request->user_id;
-        if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('08:00:00')) {
+        if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('09:00:00')) {
             $data['keterangan'] = 'Masuk';
-        } else if (strtotime($data['jam_masuk']) > strtotime('08:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
+        } else if (strtotime($data['jam_masuk']) > strtotime('09:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
             $data['keterangan'] = 'Telat';
         } else {
             $data['keterangan'] = 'Alpha';
@@ -177,9 +178,9 @@ class PresentsController extends Controller
         $data['tanggal'] = date('Y-m-d');
         if ($request->keterangan == 'Masuk' || $request->keterangan == 'Telat') {
             $data['jam_masuk'] = $request->jam_masuk;
-            if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('08:00:00')) {
+            if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('09:00:00')) {
                 $data['keterangan'] = 'Masuk';
-            } else if (strtotime($data['jam_masuk']) > strtotime('08:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
+            } else if (strtotime($data['jam_masuk']) > strtotime('09:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
                 $data['keterangan'] = 'Telat';
             } else {
                 $data['keterangan'] = 'Alpha';
@@ -229,9 +230,9 @@ class PresentsController extends Controller
 
         if ($request->keterangan == 'Masuk' || $request->keterangan == 'Telat') {
             $data['jam_masuk'] = $request->jam_masuk;
-            if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('08:00:00')) {
+            if (strtotime($data['jam_masuk']) >= strtotime('07:00:00') && strtotime($data['jam_masuk']) <= strtotime('09:00:00')) {
                 $data['keterangan'] = 'Masuk';
-            } else if (strtotime($data['jam_masuk']) > strtotime('08:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
+            } else if (strtotime($data['jam_masuk']) > strtotime('09:00:00') && strtotime($data['jam_masuk']) <= strtotime('17:00:00')) {
                 $data['keterangan'] = 'Telat';
             } else {
                 $data['keterangan'] = 'Alpha';

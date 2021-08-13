@@ -28,7 +28,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
     <link href="{{ url('argon') }}/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-    <link href="{{ url('argon') }}/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="{{ url('argon') }}/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css"
+        rel="stylesheet" />
     <!-- CSS Files -->
     <link href="{{ url('argon') }}/assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
 </head>
@@ -36,76 +37,77 @@
 <body class="bg-default" style="background: #50CB93;">
     <!-- Navbar -->
     @auth
-    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
-        <div class="container px-4">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <h1 class="text-white">{{ config('app.name') }}</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-collapse-main">
-                <!-- Collapse header -->
-                <div class="navbar-collapse-header d-md-none">
-                    <div class="row">
-                        <div class="col-6 collapse-brand">
-                            <a href="{{ route('home') }}">
-                                <h1>{{ config('app.name') }}</h1>
-                            </a>
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <button type="button" class="navbar-toggler" data-toggle="collapse"
-                                data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
-                                aria-label="Toggle sidenav">
-                                <span></span>
-                                <span></span>
-                            </button>
+        <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+            <div class="container px-4">
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <h1 class="text-white">{{ config('app.name') }}</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-collapse-main">
+                    <!-- Collapse header -->
+                    <div class="navbar-collapse-header d-md-none">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="{{ route('home') }}">
+                                    <h1>{{ config('app.name') }}</h1>
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                    data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                                    aria-label="Toggle sidenav">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Navbar items -->
-                <ul class="navbar-nav ml-auto">
-                    @if (auth()->user()->role->role == "Admin")
-                        <li class="nav-item">
-                            <a href="{{ route('users.index') }}" class="nav-link nav-link-icon">
-                                <i class="ni ni-circle-08"></i>
-                                <span class="nav-link-inner--text">Users</span>
-                            </a>
-                        </li>
-                    @endif
-                    <li class="nav-item">
-                        @if (auth()->user()->role->role == "Admin")
-                            <a class="nav-link nav-link-icon" href="{{ route('kehadiran.index') }}">
-                        @else
-                            <a class="nav-link nav-link-icon" href="{{ route('daftar-hadir') }}">
+                    <!-- Navbar items -->
+                    <ul class="navbar-nav ml-auto">
+                        @if (auth()->user()->role->role == 'Admin')
+                            <li class="nav-item">
+                                <a href="{{ route('users.index') }}" class="nav-link nav-link-icon">
+                                    <i class="ni ni-circle-08"></i>
+                                    <span class="nav-link-inner--text">Users</span>
+                                </a>
+                            </li>
                         @endif
+                        <li class="nav-item">
+                            @if (auth()->user()->role->role == 'Admin')
+                                <a class="nav-link nav-link-icon" href="{{ route('kehadiran.index') }}">
+                                @else
+                                    <a class="nav-link nav-link-icon" href="{{ route('daftar-hadir') }}">
+                            @endif
                             <i class="ni ni-check-bold"></i>
                             <span class="nav-link-inner--text">Kehadiran</span>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="{{ route('profil') }}">
-                            <i class="ni ni-single-02"></i>
-                            <span class="nav-link-inner--text">Profile</span>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-icon" href="{{ route('profil') }}">
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-inner--text">Profile</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="ni ni-user-run"></i>
-                            <span class="nav-link-inner--text">Logout</span>
-                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-icon" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="ni ni-user-run"></i>
+                                <span class="nav-link-inner--text">Logout</span>
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                </ul>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     @endauth
 
     <div class="main-content">
@@ -115,8 +117,11 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-5 col-md-6">
-                            <h1 class="text-white" style="font-size:2.5rem;">SIAKAR</h1>
-                            <p class="text-lead text-light" style="font-size:1.5rem;">Sistem Informasi Absensi Karyawan</p>
+                            <h1 class="text-white" style="font-size: 3.5rem;
+                            font-style: italic;
+                            font-family: sans-serif;">SIAKAR</h1>
+                            <p class="text-lead text-light" style="font-size:1.5rem;">Sistem Informasi Absensi Karyawan
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -159,9 +164,9 @@
         <footer class="py-5">
             <div class="container">
                 <div class="copyright text-center">
-                    Copyright © {{ date('Y')}} <a href="https://serunibelajar.co.id/" class="font-weight-bold ml-1"
-                                target="_blank">Seruni</a> Powered By <a href="#"
-                                class="font-weight-bold ml-1" target="_blank">Sparta Team</a>
+                    Copyright © {{ date('Y') }} <a href="https://serunibelajar.co.id/"
+                        class="font-weight-bold ml-1" target="_blank">Seruni</a> Powered By <a href="#"
+                        class="font-weight-bold ml-1" target="_blank">Sparta Team</a>
                 </div>
             </div>
         </footer>
@@ -179,7 +184,6 @@
                 token: "ee6fab19c5a04ac1a32a645abde4613a",
                 application: "argon-dashboard-free"
             });
-
     </script>
     <script src="{{ asset('js/myscript.js') }}"></script>
 

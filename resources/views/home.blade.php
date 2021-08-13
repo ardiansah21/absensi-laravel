@@ -8,7 +8,7 @@
             <p>Absen Libur (Hari Libur Nasional {{ $holiday }})</p>
         </div>
     @else
-        @if (date('l') == "Saturday" || date('l') == "Sunday") 
+        @if (date('l') == "Sunday") 
             <div class="text-center">
                 <p>Absen Libur</p>
             </div>
@@ -16,7 +16,7 @@
             @if ($present)
                 @if ($present->keterangan == 'Alpha')
                     <div class="text-center">
-                        @if (strtotime(date('H:i:s')) >= strtotime('07:00:00') && strtotime(date('H:i:s')) <= strtotime('17:00:00'))
+                        @if (strtotime(date('H:i:s')) >= strtotime('08:00:00') && strtotime(date('H:i:s')) <= strtotime('17:00:00'))
                             <p>Silahkan Check-in</p>
                             <form action="{{ route('kehadiran.check-in') }}" method="post">
                                 @csrf
@@ -53,7 +53,7 @@
                 @endif
             @else
                 <div class="text-center">
-                    @if (strtotime(date('H:i:s')) >= strtotime('07:00:00') && strtotime(date('H:i:s')) <= strtotime('17:00:00'))
+                    @if (strtotime(date('H:i:s')) >= strtotime('08:00:00') && strtotime(date('H:i:s')) <= strtotime('17:00:00'))
                         <p>Silahkan Check-in</p>
                         <form action="{{ route('kehadiran.check-in') }}" method="post">
                             @csrf

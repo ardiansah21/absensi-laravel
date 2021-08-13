@@ -44,7 +44,7 @@ class UsersController extends Controller
     {
         $user = $request->validate([
             'nama'  => ['required', 'max:32', 'string'],
-            'nrp'   => ['required', 'digits:9','unique:users'],
+            'nrp'   => ['required', 'max:9','unique:users'],
             'role'  => ['required', 'numeric'],
             'foto'  => ['image', 'mimes:jpeg,png,gif', 'max:2048']
         ]);
@@ -118,7 +118,7 @@ class UsersController extends Controller
     {
         $data = $request->validate([
             'nama'  => ['required', 'max:32', 'string'],
-            'nrp'   => ['required', 'digits:9',Rule::unique('users','nrp')->ignore($user)],
+            'nrp'   => ['required', 'max:9',Rule::unique('users','nrp')->ignore($user)],
             'role'  => ['required', 'numeric'],
             'foto'  => ['image', 'mimes:jpeg,png,gif', 'max:2048']
         ]);
