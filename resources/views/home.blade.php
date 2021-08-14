@@ -8,7 +8,7 @@
             <p>Absen Libur (Hari Libur Nasional {{ $holiday }})</p>
         </div>
     @else
-        @if (date('l') == "Sunday") 
+        @if (date('l') == "Sunday")
             <div class="text-center">
                 <p>Absen Libur</p>
             </div>

@@ -50,14 +50,14 @@ Route::group(['middleware' => ['web', 'auth', 'roles']], function () {
         Route::get('/daftar-hadir/cari', 'PresentsController@cariDaftarHadir')->name('daftar-hadir.cari');
     });
 
-    // ATUR IP ADDRESS DISINI
-    // Route::group(['middleware' => [config('ipaddress.ip_address')]], function () {
+    // // ATUR IP ADDRESS DISINI
+    // Route::group(['middleware' => [config('ipaddress.ip_address'), config('ipaddress.ip_address2')]], function () {
     //     Route::patch('/absen/{kehadiran}', 'PresentsController@checkOut')->name('kehadiran.check-out');
     //     Route::post('/absen', 'PresentsController@checkIn')->name('kehadiran.check-in');
     // });
 
-    // Route::group(function () {
-    Route::patch('/absen/{kehadiran}', 'PresentsController@checkOut')->name('kehadiran.check-out');
-    Route::post('/absen', 'PresentsController@checkIn')->name('kehadiran.check-in');
-    // });
+    Route::group(['middleware' => ['ipcheck']], function () {
+        Route::patch('/absen/{kehadiran}', 'PresentsController@checkOut')->name('kehadiran.check-out');
+        Route::post('/absen', 'PresentsController@checkIn')->name('kehadiran.check-in');
+    });
 });
